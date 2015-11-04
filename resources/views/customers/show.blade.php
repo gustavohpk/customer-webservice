@@ -7,17 +7,22 @@
         <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
 
 
-            <h2>Nome: {{ $user->name }}</h2>
-            <p>Usuário: {{ $user->username }}</p>
-            <p>Id: {{ $user->id }}</p>
-            <p>Administrador Geral: <i class="material-icons md-18">{{{ $user->admin == true ? 'check_circle' : 'cancel' }}}</i></p>
+            <h2>Nome: {{ $customer->name }}</h2>
+            <p>Id: {{ $customer->id }}</p>
+            <p>CPF: {{ $customer->cpf }}</p>
+            <p>RG: {{ $customer->rg }}</p>
+            <p>Telefone 1: {{ $customer->phone1 }}</p>
+            <p>Telefone 2: {{ $customer->phone2 }}</p>
+            <p>Endereço: {{ $customer->address }}</p>
+            <p>Data de Nascimento: {{ $customer->date_of_birth }}</p>
+            <p>Administrador Geral: <i class="material-icons md-18">{{{ $customer->admin == true ? 'check_circle' : 'cancel' }}}</i></p>
             <hr>
 
-            <a href="{{ route('users.edit', $user->id) }}" class="btn btn-primary">Editar</a>
+            <a href="{{ route('users.edit', $customer->id) }}" class="btn btn-primary">Editar</a>
             <a href="{{ route('users.index') }}" class="btn btn-warning">Retornar</a>
             {!! Form::open([
                 'method' => 'DELETE',
-                'route' => ['users.destroy', $user->id]
+                'route' => ['users.destroy', $customer->id]
             ]) !!}
                 {!! Form::submit('Excluir', ['class' => 'btn btn-danger']) !!}
             {!! Form::close() !!}

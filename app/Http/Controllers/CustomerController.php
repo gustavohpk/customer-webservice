@@ -37,7 +37,17 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required',
+            'cpf' => 'required|unique:customers'
+            ]);
+        $input = $request->all();
+
+        \App\Customer::create($input);
+
+        \Session::flash('flash_message', 'Cliente adicionado com sucesso.');
+
+        return redirect()->back();
     }
 
     /**
@@ -48,7 +58,9 @@ class CustomerController extends Controller
      */
     public function show($id)
     {
-        //
+        $customer = \App\Customer::findOrFail($id);
+
+        return view('customers.show')->withCustomer($customer);
     }
 
     /**
@@ -59,7 +71,9 @@ class CustomerController extends Controller
      */
     public function edit($id)
     {
-        //
+        $customer = \App\Customer::findOrFail($id);
+
+        return view('customers.edit')->withCustomer($customer);
     }
 
     /**
@@ -71,7 +85,19 @@ class CustomerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $customer = \App\Customer::findOrFail($id);
+
+        $this->validate($request, [
+            'name' => 'required',
+            'cpf' => 'required|unique:customers,id,'.$customer->id,
+            ]);
+        $input = $request->all();
+
+        $customer->fill($input)->save();
+
+        \Session::flash('flash_message', 'Cliente atualizado com sucesso.');
+
+        return redirect()->back();
     }
 
     /**
@@ -82,6 +108,12 @@ class CustomerController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $customer = \App\Customer::findOrFail($id);
+
+        $customer->delete();
+
+        \Session::flash('flash_message', 'Cliente excluído com sucesso.');
+
+        return redirect()->route('customers.index');
     }
 }
