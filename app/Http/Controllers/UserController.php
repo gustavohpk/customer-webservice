@@ -10,6 +10,11 @@ use App\Http\Controllers\Controller;
 class UserController extends Controller
 {
 
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Show the form for editing the user's password.
      *
