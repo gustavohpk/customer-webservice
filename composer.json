@@ -10,7 +10,7 @@
         "illuminate/html": "^5.0",
         "overtrue/laravel-lang": "dev-master",
         "doctrine/dbal": "^2.5",
-        "fzaninotto/faker": "~1.4",
+        "fzaninotto/faker": "~1.4"
     },
     "require-dev": {
         "mockery/mockery": "0.9.*",
