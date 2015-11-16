@@ -17,7 +17,7 @@ class RequestController extends Controller
 
         $customer = \App\Customer::where('cpf', $cpf)->first();
 
-        return \Response::json(array('customer' => $customer));
+        return \Response::json($customer);
     }
 
 
