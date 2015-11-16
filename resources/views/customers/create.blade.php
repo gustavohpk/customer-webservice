@@ -58,10 +58,10 @@
             </div>
             <div class="form-group">
                 <div class="col-lg-4">
-                    {!! Form::label('date', 'Data de Nascimento', ['class' => 'control-label']) !!}
+                    {!! Form::label('date_of_birth', 'Data de Nascimento', ['class' => 'control-label']) !!}
                 </div>
                 <div class="col-lg-8 form-group-material-blue-grey">
-                    {!! Form::text('date', null, ['class' => 'form-control']) !!}
+                    {!! Form::text('date_of_birth', null, ['class' => 'form-control']) !!}
                 </div>
             </div>
 
