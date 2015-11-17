@@ -20,5 +20,17 @@ class RequestController extends Controller
         return \Response::json($customer);
     }
 
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function customers() {
+
+        $customers = \App\Customer::all();
+
+        return \Response::json($customers);
+    }
+
 
 }
