@@ -15,4 +15,9 @@ class Customer extends Model
         'address',
         'date_of_birth'
     ];
+
+    public function rating(){
+    	$ratings = $this->hasMany('App\Rating')->get();
+    	return $ratings->sum('number') / $ratings->count();
+    }
 }

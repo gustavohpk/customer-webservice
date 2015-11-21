@@ -15,6 +15,7 @@
 Route::get('/request/customer/{id}', ['as' => 'request.customer', 'uses' => 'RequestController@customer']);
 Route::get('/request/customers', ['as' => 'request.customers', 'uses' => 'RequestController@customers']);
 
+Route::get('/ratings/{customerId}/rate/{number}', ['as' => 'ratings.rate', 'uses' => 'RatingController@rate']);
 
 // Home
 Route::get('/', ['as' => 'home.index', 'uses' => 'HomeController@index']);

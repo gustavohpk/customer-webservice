@@ -16,6 +16,7 @@ class RequestController extends Controller
     public function customer($cpf) {
 
         $customer = \App\Customer::where('cpf', $cpf)->first();
+        $customer->rating = $customer->rating();
 
         return \Response::json($customer);
     }
