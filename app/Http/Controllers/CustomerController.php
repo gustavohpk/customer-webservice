@@ -66,8 +66,6 @@ class CustomerController extends Controller
     {
         $customer = \App\Customer::findOrFail($id);
 
-        var_dump($customer->rating()); exit;
-
         return view('customers.show')->withCustomer($customer);
     }
 

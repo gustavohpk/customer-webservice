@@ -15,6 +15,7 @@
             <p>Telefone 2: {{ $customer->phone2 }}</p>
             <p>Endereço: {{ $customer->address }}</p>
             <p>Data de Nascimento: {{ $customer->date_of_birth }}</p>
+            <p>Avaliação: {{ $customer->rating() }}</p>
             <hr>
 
             <a href="{{ route('users.edit', $customer->id) }}" class="btn btn-primary">Editar</a>

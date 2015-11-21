@@ -18,6 +18,11 @@ class Customer extends Model
 
     public function rating(){
     	$ratings = $this->hasMany('App\Rating')->get();
-    	return $ratings->sum('number') / $ratings->count();
+    	if($ratings->count() == 0){
+    		$number = 0;
+    	}else{
+    		$number = $ratings->sum('number') / $ratings->count();
+    	}
+    	return $number;
     }
 }
